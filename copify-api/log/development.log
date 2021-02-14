@@ -1,0 +1,57 @@
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210214194045)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "purchase_date" date, "name" varchar, "brand" varchar, "size" varchar, "cost" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210214194045"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-14 19:46:37.952213"], ["updated_at", "2021-02-14 19:46:37.952213"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (2.5ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-03-01"], ["name", "Ergonomic Linen Wallet"], ["brand", "Wehner-Glover"], ["size", "Large"], ["cost", 10.71], ["created_at", "2021-02-14 20:20:23.385029"], ["updated_at", "2021-02-14 20:20:23.385029"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-12-24"], ["name", "Fantastic Iron Computer"], ["brand", "Leuschke Group"], ["size", "Small"], ["cost", 13.89], ["created_at", "2021-02-14 20:20:23.391858"], ["updated_at", "2021-02-14 20:20:23.391858"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-10-16"], ["name", "Awesome Aluminum Pants"], ["brand", "Weimann Group"], ["size", "Medium"], ["cost", 51.02], ["created_at", "2021-02-14 20:20:23.396374"], ["updated_at", "2021-02-14 20:20:23.396374"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-01-03"], ["name", "Small Aluminum Plate"], ["brand", "Senger-Lind"], ["size", "Small"], ["cost", 18.85], ["created_at", "2021-02-14 20:20:23.401534"], ["updated_at", "2021-02-14 20:20:23.401534"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-02-04"], ["name", "Enormous Copper Shirt"], ["brand", "O'Kon LLC"], ["size", "Medium"], ["cost", 66.75], ["created_at", "2021-02-14 20:20:23.405949"], ["updated_at", "2021-02-14 20:20:23.405949"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-09-25"], ["name", "Fantastic Concrete Bottle"], ["brand", "Daugherty-Bosco"], ["size", "X-Large"], ["cost", 47.6], ["created_at", "2021-02-14 20:20:23.410075"], ["updated_at", "2021-02-14 20:20:23.410075"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-10-22"], ["name", "Gorgeous Cotton Wallet"], ["brand", "Lang, Parker and Kirlin"], ["size", "Small"], ["cost", 60.06], ["created_at", "2021-02-14 20:20:23.414648"], ["updated_at", "2021-02-14 20:20:23.414648"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-04-20"], ["name", "Awesome Cotton Clock"], ["brand", "Hegmann LLC"], ["size", "Large"], ["cost", 2.66], ["created_at", "2021-02-14 20:20:23.418439"], ["updated_at", "2021-02-14 20:20:23.418439"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-03-13"], ["name", "Enormous Rubber Shoes"], ["brand", "Macejkovic, Gorczany and Torp"], ["size", "Small"], ["cost", 96.1], ["created_at", "2021-02-14 20:20:23.422446"], ["updated_at", "2021-02-14 20:20:23.422446"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("purchase_date", "name", "brand", "size", "cost", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["purchase_date", "2020-06-08"], ["name", "Practical Aluminum Bottle"], ["brand", "Dooley, Cronin and Schuppe"], ["size", "Small"], ["cost", 24.55], ["created_at", "2021-02-14 20:20:23.426633"], ["updated_at", "2021-02-14 20:20:23.426633"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
