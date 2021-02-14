@@ -1,10 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemsContainer from './containers/ItemsContainer';
+import { fetchItems } from './actions/itemActions';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchItems();
+  }
+  
   render() {
 
     return (
@@ -21,4 +26,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchItems: () => dispatch(fetchItems())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
