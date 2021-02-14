@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemsContainer from './containers/ItemsContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <ItemsContainer items={this.props.items}></ItemsContainer>
-    </div>
-  );
+class App extends Component {
+  render() {
+
+    return (
+      <div className="App">
+        <ItemsContainer items={this.props.items}></ItemsContainer>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {

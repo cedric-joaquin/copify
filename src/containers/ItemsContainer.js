@@ -3,8 +3,11 @@ import Items from '../components/items/Items';
 
 export default class ItemsContainer extends Component {
     render() {
+
         return (
-            <Items></Items>
+            <div>
+                <Items items={this.props.items}></Items>
+            </div>
         )
     }
 }
