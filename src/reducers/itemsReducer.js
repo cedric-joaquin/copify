@@ -11,7 +11,7 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
                 loading: true
             }
 
-        case 'ADD_ITEMS':
+        case 'LOAD_INVENTORY':
             return {
                 ...state,
                 items: action.items,
