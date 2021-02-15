@@ -30,8 +30,7 @@ class ItemInput extends Component {
 
     handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        this.props.addItem(this.state);
+        this.props.addItem(this.state.item);
         this.setState({
             item: {
                 purchase_date: "",
