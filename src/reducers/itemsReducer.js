@@ -1,4 +1,3 @@
-import cuid from 'cuid';
 
 const itemsReducer = (state = {items: [], loading:false}, action) => {
     switch(action.type) {
@@ -16,6 +15,13 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
                 ...state,
                 items: action.items,
                 loading: false
+            }
+
+        case 'ADD_ITEM':
+            console.log(action.item);
+            return {
+                ...state,
+                items: [...state.items, action.item]
             }
 
         default:

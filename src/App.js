@@ -1,7 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import ItemsContainer from './containers/ItemsContainer';
+import ItemInput from './components/items/ItemInput'
+
 import { fetchItems } from './actions/itemActions';
 
 class App extends Component {
@@ -15,6 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <ItemsContainer items={this.props.items}></ItemsContainer>
+        <ItemInput />
       </div>
     );
   }
