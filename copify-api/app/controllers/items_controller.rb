@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
     end
 
     def destroy
+        binding.pry
         item = Item.find_by(id: [params:id])
         item.destroy
     end
