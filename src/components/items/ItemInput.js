@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../../actions/itemActions'
 
-class ItemInput extends Component {
+export default class ItemInput extends Component {
 
     constructor(props) {
         super(props);
@@ -56,10 +56,10 @@ class ItemInput extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addItem: (item) => dispatch(addItem(item))
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         addItem: (item) => dispatch(addItem(item))
+//     }
+// }
 
-export default connect (null, mapDispatchToProps)(ItemInput)
+// export default connect (null, mapDispatchToProps)(ItemInput)
