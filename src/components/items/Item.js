@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 export default class Item extends Component {
+    handleOnClick = (e) => {
+        e.preventDefault();
+        this.props.deleteItem(this.props.item)
+    }
+
     render() {
         return (
             <div>
@@ -9,6 +14,7 @@ export default class Item extends Component {
                 {this.props.item.brand} <br />
                 {this.props.item.size} <br />
                 {this.props.item.cost} <br />
+                <button onClick={this.handleOnClick}>Delete Item</button>
             </div>
         )
     }

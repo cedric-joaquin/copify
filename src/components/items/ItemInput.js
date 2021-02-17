@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addItem } from '../../actions/itemActions'
 
 export default class ItemInput extends Component {
 

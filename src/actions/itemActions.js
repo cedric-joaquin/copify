@@ -30,3 +30,22 @@ export const addItem = (item) => {
         })
     }
 }
+
+export const deleteItem = (item) => {
+    return (dispatch) => {
+        dispatch({type: 'DELETING_ITEM'})
+        fetch(`http://localhost:4000/items/${item.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                id: item.id
+            })
+        })
+        .then( () => {
+            dispatch({type: 'DELETE_ITEM', id: item.id});
+        })
+    }
+}

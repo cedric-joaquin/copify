@@ -1,14 +1,15 @@
-
 const itemsReducer = (state = {items: [], loading:false}, action) => {
+    const loadingState = {
+        ...state,
+        items: [...state.items],
+        loading: true
+    }
+
     switch(action.type) {
 
         case 'LOADING_INVENTORY':
             console.log('Loading Inventory...');
-            return {
-                ...state,
-                items: [...state.items],
-                loading: true
-            }
+            return loadingState
 
         case 'LOAD_INVENTORY':
             return {
@@ -19,11 +20,7 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
 
         case 'LOADING_ITEM':
             console.log('Loading Item...');
-            return {
-                ...state,
-                items: [...state.items],
-                loading: true
-            }
+            return loadingState
 
         case 'ADD_ITEM':
             console.log(action.item);
@@ -32,6 +29,20 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
                 items: [...state.items, action.item],
                 loading: false
             }
+
+        case 'DELETING_ITEM':
+            console.log('Deleting Item...');
+            return loadingState
+
+        case 'DELETE_ITEM':
+            console.log('Hit this event')
+            const items = state.items.filter(item => item.id !== action.id)
+            return ({
+                ...state,
+                items,
+                loading: false
+            })
+
 
         default:
             return state;
