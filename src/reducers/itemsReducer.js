@@ -17,11 +17,20 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
                 loading: false
             }
 
+        case 'LOADING_ITEM':
+            console.log('Loading Item...');
+            return {
+                ...state,
+                items: [...state.items],
+                loading: true
+            }
+
         case 'ADD_ITEM':
             console.log(action.item);
             return {
                 ...state,
-                items: [...state.items, action.item]
+                items: [...state.items, action.item],
+                loading: false
             }
 
         default:

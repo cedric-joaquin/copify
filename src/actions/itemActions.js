@@ -9,6 +9,8 @@ export const fetchItems = () => {
 
 export const addItem = (item) => {
     return (dispatch) => {
+        dispatch({type: 'LOADING_ITEM'})
+        fetch('')
         dispatch({type: 'ADD_ITEM', item})
     }
 }
