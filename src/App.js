@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ItemsContainer from './containers/ItemsContainer';
 import ItemInput from './components/items/ItemInput'
 
-import { fetchItems } from './actions/itemActions';
+import { fetchItems, addItem, deleteItem } from './actions/itemActions';
 
 class App extends Component {
 
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <ItemsContainer items={this.props.items}></ItemsContainer>
-        <ItemInput />
+        <ItemInput addItem={this.props.addItem}/>
       </div>
     );
   }
@@ -32,7 +32,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchItems: () => dispatch(fetchItems())
+    fetchItems: () => dispatch(fetchItems()),
+    addItem: (item) => dispatch(addItem(item)),
+    deleteItem: (item) => dispatch(deleteItem(item))
   }
 }
 
