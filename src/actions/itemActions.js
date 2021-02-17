@@ -10,7 +10,23 @@ export const fetchItems = () => {
 export const addItem = (item) => {
     return (dispatch) => {
         dispatch({type: 'LOADING_ITEM'})
-        fetch('')
-        dispatch({type: 'ADD_ITEM', item})
+        fetch('http://localhost:4000/items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                purchase_date: item.purchase_date,
+                name: item.name,
+                brand: item.brand,
+                size: item.size,
+                cost: item.cost
+            })
+        })
+        .then(resp => resp.json())
+        .then(item => {
+            dispatch({type: 'ADD_ITEM', item})
+        })
     }
 }
