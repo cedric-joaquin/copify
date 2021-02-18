@@ -45,7 +45,8 @@ export const editItem = (item) => {
                 name: item.name,
                 brand: item.brand,
                 size: item.size,
-                cost: item.cost
+                cost: item.cost,
+                id: item.id
             })
         })
         .then(resp => resp.json())

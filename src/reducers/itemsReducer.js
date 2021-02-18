@@ -30,6 +30,19 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
                 loading: false
             }
 
+
+        case 'EDITING_ITEM':
+            console.log('Editing Item...');
+            return loadingState
+
+        case 'EDIT_ITEM':
+            console.log(action.item);
+            return {
+                ...state,
+                items: [...state.items, action.item],
+                loading: false
+            }
+
         case 'DELETING_ITEM':
             console.log('Deleting Item...');
             return loadingState
