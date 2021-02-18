@@ -17,7 +17,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ItemsContainer items={this.props.items}></ItemsContainer>
+        <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem}></ItemsContainer>
         <ItemInput addItem={this.props.addItem}/>
       </div>
     );

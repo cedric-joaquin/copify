@@ -53,11 +53,3 @@ export default class ItemInput extends Component {
         )
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addItem: (item) => dispatch(addItem(item))
-//     }
-// }
-
-// export default connect (null, mapDispatchToProps)(ItemInput)
