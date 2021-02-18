@@ -19,7 +19,6 @@ class App extends Component {
     })
   }
   
-
   handleOnAddItemClick = (e) => {
     e.preventDefault();
     this.setState({
@@ -36,7 +35,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem}></ItemsContainer>
+        <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem}></ItemsContainer><br />
         {console.log(this.state)}
         {
           this.state.addItemClicked?
