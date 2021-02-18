@@ -8,6 +8,17 @@ import ItemInput from './components/items/ItemInput'
 import { fetchItems, addItem, deleteItem } from './actions/itemActions';
 
 class App extends Component {
+  state = {
+    addItemClicked: false
+  }
+
+  handleAddItemClick = (e) => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      addItemClicked: true
+    })
+  }
 
   componentDidMount() {
     this.props.fetchItems();
@@ -18,7 +29,12 @@ class App extends Component {
     return (
       <div className="App">
         <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem}></ItemsContainer>
-        <ItemInput addItem={this.props.addItem}/>
+        {console.log(this.state)}
+        {
+          this.state.addItemClicked?
+            <ItemInput addItem={this.props.addItem}/> :
+            <button onClick={this.handleAddItemClick}>Add Item</button>
+        }
       </div>
     );
   }
