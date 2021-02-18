@@ -31,6 +31,30 @@ export const addItem = (item) => {
     }
 }
 
+export const editItem = (item) => {
+    return (dispatch) => {
+        dispatch({type: 'EDITING_ITEM'})
+        fetch(`http://localhost:4000/items/${item.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                purchase_date: item.purchase_date,
+                name: item.name,
+                brand: item.brand,
+                size: item.size,
+                cost: item.cost
+            })
+        })
+        .then(resp => resp.json())
+        .then(item => {
+            dispatch({type: 'EDIT_ITEM', item})
+        })
+    }
+}
+
 export const deleteItem = (item) => {
     return (dispatch) => {
         dispatch({type: 'DELETING_ITEM'})
