@@ -7,7 +7,8 @@ export default class ItemInput extends Component {
 
         if (this.props.item) {
             this.state = {
-                item: this.props.item
+                item: this.props.item,
+                editingItem: true
             }
         } else {
             this.state = {
@@ -17,7 +18,8 @@ export default class ItemInput extends Component {
                     brand: "",
                     size: "",
                     cost: ""
-                }
+                },
+                addingItem: true
             }
         }
     }
@@ -34,17 +36,22 @@ export default class ItemInput extends Component {
 
     handleOnSubmit = (e) => {
         e.preventDefault();
-        this.props.addItem(this.state.item);
-        this.setState({
-            item: {
-                purchase_date: "",
-                name: "",
-                brand: "",
-                size: "",
-                cost: ""
-            }
-        })
-        this.props.handleAddItemClicked()
+        if (this.state.addingItem) {
+            this.props.addItem(this.state.item);
+            this.setState({
+                item: {
+                    purchase_date: "",
+                    name: "",
+                    brand: "",
+                    size: "",
+                    cost: ""
+                }
+            })
+            this.props.handleAddItemSubmitted()
+
+        } else if (this.state.editingItem) {
+            this.props.editItem(this.state.item)
+        }
     }
 
     render() {

@@ -5,20 +5,24 @@ import { connect } from 'react-redux';
 import ItemsContainer from './containers/ItemsContainer';
 import ItemInput from './components/items/ItemInput'
 
-import { fetchItems, addItem, deleteItem } from './actions/itemActions';
+import { fetchItems, addItem, deleteItem, editItem } from './actions/itemActions';
 
 class App extends Component {
   state = {
     addItemClicked: false
   }
 
-  handleAddItemClicked = (e) => {
+  //renders add item button after submitting an item
+  handleAddItemSubmitted = (e) => {
     this.setState({
       ...this.state,
       addItemClicked: false
     })
   }
+
+  handleEdit
   
+  //renders form when Add Item is clicked
   handleOnAddItemClick = (e) => {
     e.preventDefault();
     this.setState({
@@ -35,11 +39,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem}></ItemsContainer><br />
+        <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem} editItem={this.props.editItem}></ItemsContainer><br />
         {console.log(this.state)}
         {
           this.state.addItemClicked?
-            <ItemInput addItem={this.props.addItem} handleAddItemClicked={this.handleAddItemClicked}/> :
+            <ItemInput addItem={this.props.addItem} handleAddItemSubmitted={this.handleAddItemSubmitted}/> :
             <button onClick={this.handleOnAddItemClick}>Add Item</button>
         }
       </div>
@@ -57,7 +61,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchItems: () => dispatch(fetchItems()),
     addItem: (item) => dispatch(addItem(item)),
-    deleteItem: (item) => dispatch(deleteItem(item))
+    deleteItem: (item) => dispatch(deleteItem(item)),
+    editItem: (item) => dispatch(editItem(item))
   }
 }
 

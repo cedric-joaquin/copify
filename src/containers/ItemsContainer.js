@@ -6,7 +6,7 @@ export default class ItemsContainer extends Component {
 
         return (
             <div>
-                <Items items={this.props.items} deleteItem={this.props.deleteItem}></Items>
+                <Items items={this.props.items} deleteItem={this.props.deleteItem} editItem={this.props.editItem}></Items>
             </div>
         )
     }
