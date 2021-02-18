@@ -5,13 +5,19 @@ export default class ItemInput extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            item: {
-                purchase_date: "",
-                name: "",
-                brand: "",
-                size: "",
-                cost: ""
+        if (this.props.item) {
+            this.state = {
+                item: this.props.item
+            }
+        } else {
+            this.state = {
+                item: {
+                    purchase_date: "",
+                    name: "",
+                    brand: "",
+                    size: "",
+                    cost: ""
+                }
             }
         }
     }
