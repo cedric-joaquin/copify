@@ -38,6 +38,7 @@ export default class ItemInput extends Component {
                 cost: ""
             }
         })
+        this.props.handleAddItemClicked()
     }
 
     render() {

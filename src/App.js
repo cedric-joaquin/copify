@@ -12,7 +12,15 @@ class App extends Component {
     addItemClicked: false
   }
 
-  handleAddItemClick = (e) => {
+  handleAddItemClicked = (e) => {
+    this.setState({
+      ...this.state,
+      addItemClicked: false
+    })
+  }
+  
+
+  handleOnAddItemClick = (e) => {
     e.preventDefault();
     this.setState({
       ...this.state,
@@ -32,8 +40,8 @@ class App extends Component {
         {console.log(this.state)}
         {
           this.state.addItemClicked?
-            <ItemInput addItem={this.props.addItem}/> :
-            <button onClick={this.handleAddItemClick}>Add Item</button>
+            <ItemInput addItem={this.props.addItem} handleAddItemClicked={this.handleAddItemClicked}/> :
+            <button onClick={this.handleOnAddItemClick}>Add Item</button>
         }
       </div>
     );
