@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
     def index
         inventory = Item.all
         render json: inventory
@@ -29,8 +28,7 @@ class ItemsController < ApplicationController
     end
 
     def destroy
-        binding.pry
-        item = Item.find_by(id: [params:id])
+        item = Item.find_by(id: params[:id])
         item.destroy
     end
 
