@@ -3,11 +3,9 @@ import ItemInput from './ItemInput'
 
 export default class Item extends Component {
         state = {
-            item: this.props.item,
             editItemClicked: false
         }
 
-    handle
 
     handleOnClickDelete = (e) => {
         e.preventDefault();
@@ -16,7 +14,6 @@ export default class Item extends Component {
 
     handleEditItemSubmitted = (e) => {
         this.setState({
-            ...this.state,
             editItemClicked: false
         })
     }
@@ -24,7 +21,6 @@ export default class Item extends Component {
     handleOnEditItemClick = (e) => {
         e.preventDefault();
         this.setState({
-            ...this.state,
             editItemClicked: true
         })
     }
@@ -32,13 +28,13 @@ export default class Item extends Component {
     render() {
         return (
             <div>
-                <h1>{this.state.item.name}</h1>
-                <h2>{this.state.item.purchase_date}</h2>
-                {this.state.item.brand} <br />
-                {this.state.item.size} <br />
-                {this.state.item.cost} <br />
+                <h1>{this.props.item.name}</h1>
+                <h2>{this.props.item.purchase_date}</h2>
+                {this.props.item.brand} <br />
+                {this.props.item.size} <br />
+                {this.props.item.cost} <br />
                 { this.state.editItemClicked? 
-                    <ItemInput item={this.state.item} editItem={this.props.editItem}/> : 
+                    <ItemInput item={this.props.item} editItem={this.props.editItem} handleEditItemSubmitted={this.handleEditItemSubmitted}/> : 
                     <div>
                         <button onClick={this.handleOnEditItemClick}>Edit Item</button> 
                         <button onClick={this.handleOnClickDelete}>Delete Item</button>

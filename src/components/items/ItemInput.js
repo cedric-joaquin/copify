@@ -51,6 +51,7 @@ export default class ItemInput extends Component {
 
         } else if (this.state.editingItem) {
             this.props.editItem(this.state.item)
+            this.props.handleEditItemSubmitted()
         }
     }
 

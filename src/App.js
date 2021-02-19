@@ -19,8 +19,6 @@ class App extends Component {
       addItemClicked: false
     })
   }
-
-  handleEdit
   
   //renders form when Add Item is clicked
   handleOnAddItemClick = (e) => {
@@ -40,7 +38,6 @@ class App extends Component {
     return (
       <div className="App">
         <ItemsContainer items={this.props.items} deleteItem={this.props.deleteItem} editItem={this.props.editItem}></ItemsContainer><br />
-        {console.log(this.state)}
         {
           this.state.addItemClicked?
             <ItemInput addItem={this.props.addItem} handleAddItemSubmitted={this.handleAddItemSubmitted}/> :

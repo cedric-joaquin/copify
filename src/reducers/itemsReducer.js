@@ -24,6 +24,7 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
 
         case 'ADD_ITEM':
             console.log(action.item);
+
             return {
                 ...state,
                 items: [...state.items, action.item],
@@ -36,10 +37,12 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
             return loadingState
 
         case 'EDIT_ITEM':
-            console.log(action.item);
+            const idx = state.items.findIndex(item => item.id === action.item.id)
+            let newItems = [...state.items]
+            newItems[idx] = action.item
             return {
                 ...state,
-                items: [...state.items, action.item],
+                items: newItems,
                 loading: false
             }
 
@@ -48,14 +51,12 @@ const itemsReducer = (state = {items: [], loading:false}, action) => {
             return loadingState
 
         case 'DELETE_ITEM':
-            console.log('Hit this event')
             const items = state.items.filter(item => item.id !== action.id)
             return ({
                 ...state,
                 items,
                 loading: false
             })
-
 
         default:
             return state;
