@@ -2,39 +2,44 @@ import React, { Component } from 'react';
 import ItemInput from './ItemInput'
 
 export default class Item extends Component {
-        state = {
-            editItemClicked: false
-        }
+    state = {
+        editItemClicked: false
+    }
 
-
+    
     handleOnClickDelete = (e) => {
         e.preventDefault();
         this.props.deleteItem(this.props.item)
     }
-
+    
     handleEditItemSubmitted = (e) => {
         this.setState({
             editItemClicked: false
         })
     }
-
+    
     handleOnEditItemClick = (e) => {
         e.preventDefault();
         this.setState({
             editItemClicked: true
         })
     }
-
+    
     render() {
+        const filteredItem = this.props.items.filter(item => item.id == this.props.match.params.itemId)
+        let item = {...filteredItem[0]}
         return (
             <div>
-                <h1>{this.props.item.name}</h1>
-                <h2>{this.props.item.purchase_date}</h2>
-                {this.props.item.brand} <br />
-                {this.props.item.size} <br />
-                {this.props.item.cost} <br />
+                {console.log(this.props.items)}
+                {console.log(this.props.match.params.itemId)}
+                {console.log(item)}
+                <h1>{item.name}</h1>
+                <h2>{item.purchase_date}</h2>
+                {item.brand} <br />
+                {item.size} <br />
+                {item.cost} <br />
                 { this.state.editItemClicked? 
-                    <ItemInput item={this.props.item} editItem={this.props.editItem} handleEditItemSubmitted={this.handleEditItemSubmitted}/> : 
+                    <ItemInput item={item} editItem={this.props.editItem} handleEditItemSubmitted={this.handleEditItemSubmitted}/> : 
                     <div>
                         <button onClick={this.handleOnEditItemClick}>Edit Item</button> 
                         <button onClick={this.handleOnClickDelete}>Delete Item</button>

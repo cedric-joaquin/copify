@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './Item.js';
+import { Route, Link } from 'react-router-dom'
 
 export default class Items extends Component {
 
@@ -8,7 +9,8 @@ export default class Items extends Component {
                 return (
                     <tr>
                         <td>{item.purchase_date}</td>
-                        <td>{item.name}</td>
+                        <td>
+                            <Link to={`/inventory/${item.id}`}>{item.name}</Link></td>
                         <td>{item.cost}</td>
                     </tr>
                 )
@@ -16,18 +18,21 @@ export default class Items extends Component {
             })
         
         return (
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Purchase Date</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {items}
-                </tbody>
-            </table>
+            <div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Purchase Date</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items}
+                    </tbody>
+                </table>
+                <Route path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} /> }/>
+            </div>
         )
     }
 }
