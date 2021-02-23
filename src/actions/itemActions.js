@@ -72,5 +72,6 @@ export const deleteItem = (item) => {
         .then( () => {
             dispatch({type: 'DELETE_ITEM', id: item.id});
         })
+        .then( () => window.location.replace('http://localhost:3000/inventory'))
     }
 }
