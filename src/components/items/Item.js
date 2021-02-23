@@ -5,12 +5,6 @@ export default class Item extends Component {
     state = {
         editItemClicked: false
     }
-
-    
-    handleOnClickDelete = (e) => {
-        e.preventDefault();
-        this.props.deleteItem(this.props.item)
-    }
     
     handleEditItemSubmitted = (e) => {
         this.setState({
@@ -42,7 +36,7 @@ export default class Item extends Component {
                     <ItemInput item={item} editItem={this.props.editItem} handleEditItemSubmitted={this.handleEditItemSubmitted}/> : 
                     <div>
                         <button onClick={this.handleOnEditItemClick}>Edit Item</button> 
-                        <button onClick={this.handleOnClickDelete}>Delete Item</button>
+                        <button onClick={() => this.props.deleteItem(item)}>Delete Item</button>
                     </div>
                 }
             </div>

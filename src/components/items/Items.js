@@ -31,7 +31,7 @@ export default class Items extends Component {
                         {items}
                     </tbody>
                 </table>
-                <Route path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem}/> }/>
+                <Route path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem} editItem={this.props.editItem}/> }/>
             </div>
         )
     }
