@@ -26,6 +26,7 @@ export const addItem = (item) => {
         })
         .then(resp => resp.json())
         .then(item => {
+            window.location.replace(`http://localhost:3000/inventory/${item.id}`);
             dispatch({type: 'ADD_ITEM', item})
         })
     }
@@ -70,8 +71,8 @@ export const deleteItem = (item) => {
             })
         })
         .then( () => {
+            window.location.replace('http://localhost:3000/inventory');
             dispatch({type: 'DELETE_ITEM', id: item.id});
         })
-        .then( () => window.location.replace('http://localhost:3000/inventory'))
     }
 }
