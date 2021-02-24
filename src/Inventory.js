@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
 
 import ItemsContainer from './containers/ItemsContainer';
-import ItemInput from './components/items/ItemInput'
 
 export default class Inventory extends Component {
   

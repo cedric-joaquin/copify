@@ -5,10 +5,10 @@ export default class ItemInput extends Component {
     constructor(props) {
         super(props);
         
-        const filteredItem = this.props.items.filter(item => item.id == this.props.match.params.itemId)
-        let item = {...filteredItem[0]}
-
+        
         if (this.props.items) {
+            const filteredItem = this.props.items.filter(item => item.id == this.props.match.params.itemId)
+            let item = {...filteredItem[0]}
             this.state = {
                 item,
                 editingItem: true

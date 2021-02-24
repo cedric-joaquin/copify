@@ -1,44 +1,22 @@
 import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Inventory from './Inventory'
-import ItemInput from './components/items/ItemInput'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import ItemsContainer from './containers/ItemsContainer'
 
 import { fetchItems, addItem, deleteItem, editItem } from './actions/itemActions';
 
 class App extends Component {
-
-  // state = {
-  //   addItemClicked: false
-  // }
-
-  //renders add item button after submitting an item
-  // handleAddItemSubmitted = (e) => {
-  //   this.setState({
-  //     ...this.state,
-  //     addItemClicked: false
-  //   })
-  // }
-  
-  //renders form when Add Item is clicked
-  // handleOnAddItemClick = (e) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     ...this.state,
-  //     addItemClicked: true
-  //   })
-  // }
   
   render() {
 
     return (
       <Router>
         <Route path='/inventory'>
-          <Inventory {...this.props}></Inventory>
-          <Route exact path='/inventory'>
-              <button onClick={() => window.location.replace('http://localhost:3000/inventory/new')}>Add Item</button>
-          </Route>
+          <ItemsContainer {...this.props}/>
+        </Route>
+        <Route exact path='/inventory'>
+          <Link to='/inventory/new'><button>Add Item</button></Link>
         </Route>
       </Router>
     );
