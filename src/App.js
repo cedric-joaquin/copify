@@ -39,9 +39,6 @@ class App extends Component {
           <Route exact path='/inventory'>
               <button onClick={() => window.location.replace('http://localhost:3000/inventory/new')}>Add Item</button>
           </Route>
-          <Route path='/inventory/new'>
-            <ItemInput addItem={this.props.addItem} />
-          </Route>
         </Route>
       </Router>
     );

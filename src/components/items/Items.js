@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './Item.js';
-import { Route, Link } from 'react-router-dom'
+import ItemInput from './ItemInput'
+import { Route, Link, Switch } from 'react-router-dom'
 
 export default class Items extends Component {
 
@@ -31,7 +32,13 @@ export default class Items extends Component {
                         {items}
                     </tbody>
                 </table>
-                <Route exact path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem} editItem={this.props.editItem}/> }/>
+                <Switch>
+                    <Route exact path='/inventory/new'>
+                        <ItemInput addItem={this.props.addItem} />
+                    </Route>
+                    <Route exact path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem} editItem={this.props.editItem}
+                    editItemClicked={false}/> }/>
+                </Switch>
             </div>
         )
     }

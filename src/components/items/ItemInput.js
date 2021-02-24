@@ -56,6 +56,7 @@ export default class ItemInput extends Component {
     }
 
     render() {
+        debugger;
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <label>Purchase Date</label><input type="date" name="purchase_date" value={this.state.item.purchase_date} onChange={this.handleOnChange}></input><br />
