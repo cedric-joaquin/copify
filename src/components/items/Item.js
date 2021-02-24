@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import ItemInput from './ItemInput'
 
 export default class Item extends Component {
@@ -15,11 +15,9 @@ export default class Item extends Component {
                 {item.size} <br />
                 {item.cost} <br />
                 <div>
-                    <button onClick={() => window.location.replace(`http://localhost:3000/inventory/${item.id}/edit`)}>Edit Item</button> 
+                <Link to={`/inventory/${item.id}/edit`}><button>Edit Item</button></Link>
                     <button onClick={() => this.props.deleteItem(item)}>Delete Item</button>
                 </div>
-                <Route exact path={'/inventory/:itemId/edit'} render={routerProps => <ItemInput {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem} editItem={this.props.editItem}
-                editItemClicked={false}/> }/>
             </div>
         )
     }

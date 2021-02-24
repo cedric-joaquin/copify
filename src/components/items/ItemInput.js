@@ -4,10 +4,13 @@ export default class ItemInput extends Component {
 
     constructor(props) {
         super(props);
+        
+        const filteredItem = this.props.items.filter(item => item.id == this.props.match.params.itemId)
+        let item = {...filteredItem[0]}
 
-        if (this.props.item) {
+        if (this.props.items) {
             this.state = {
-                item: this.props.item,
+                item,
                 editingItem: true
             }
         } else {
@@ -56,7 +59,6 @@ export default class ItemInput extends Component {
     }
 
     render() {
-        debugger;
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <label>Purchase Date</label><input type="date" name="purchase_date" value={this.state.item.purchase_date} onChange={this.handleOnChange}></input><br />
