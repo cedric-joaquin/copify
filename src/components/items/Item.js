@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
 export default class Item extends Component {
@@ -8,12 +9,15 @@ export default class Item extends Component {
         let item = {...filteredItem[0]}
         return (
             <div class="container-fluid pt-1 pl-3">
-                <div class="card" style={{width: "18rem"}}>
+                <div class="card" style={{width: "25rem"}}>
                     <div class="card-body">
-                        <h5>{item.brand}</h5>
-                        <p>Size: {item.size}</p>
-                        <p>Cost: {item.cost}</p>
-                        <p>Purchased on <strong>{item.purchase_date}</strong></p>
+                        <Card.Title>{item.name}</Card.Title>
+                        <Card.Subtitle>{item.brand}</Card.Subtitle><br/>
+                        <Card.Text>
+                        Size: {item.size}<br />
+                        Cost: {item.cost}<br />
+                        Purchased on <strong>{item.purchase_date}</strong><br/>
+                        </Card.Text>
                         <Link to={`/inventory/${item.id}/edit`}><button class="btn btn-primary">Edit Item</button></Link>
                         <button class="btn btn-warning" onClick={() => this.props.deleteItem(item)}>Delete Item</button>
                     </div>

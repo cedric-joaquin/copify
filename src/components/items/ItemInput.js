@@ -59,7 +59,7 @@ export default class ItemInput extends Component {
     render() {
         return (
             <div class="container-fluid pt-1 pl-3">
-                <div class="card" style={{width: "18rem"}}>
+                <div class="card" style={{width: "25rem"}}>
                     <div class="card-body">
                         <form onSubmit={this.handleOnSubmit}>
                             <label>Purchase Date</label><input type="date" name="purchase_date" value={this.state.item.purchase_date} onChange={this.handleOnChange}></input><br />
