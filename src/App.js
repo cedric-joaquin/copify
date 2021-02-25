@@ -17,13 +17,17 @@ class App extends Component {
         <div class='row'>
           <Router>
             <Route path='/' component={Navbar} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/inventory'>
-              <ItemsContainer {...this.props} />
-            </Route>
-            <Route exact path='/inventory'>
-              <Link to='/inventory/new'><button>Add Item</button></Link>
-            </Route>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+              <Route path='/dashboard' component={Dashboard} />
+              {/* <Route exact path='/inventory'>
+              </Route> */}
+              <Route path='/inventory'>
+                <header class="navbar navbar-expand-md">
+                  <Link to='/inventory/new'><button>Add Item</button></Link>
+                </header>
+                <ItemsContainer {...this.props} />
+              </Route>
+            </main>
           </Router>
         </div>
       </div>
