@@ -8,7 +8,7 @@ export default class Item extends Component {
         let item = {...filteredItem[0]}
         return (
             <div class="container-fluid pt-1 pl-3">
-                <div class="card" width="18rem">
+                <div class="card" style={{width: "18rem"}}>
                     <div class="card-body">
                         <h5>{item.brand}</h5>
                         <p>Size: {item.size}</p>
