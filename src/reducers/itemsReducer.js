@@ -1,8 +1,6 @@
 const itemsReducer = (state = {items: [], analytics: [], loading:false}, action) => {
     const loadingState = {
         ...state,
-        items: [...state.items],
-        analytics: [...state.analytics],
         loading: true
     }
 
