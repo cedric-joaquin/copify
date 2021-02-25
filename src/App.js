@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ItemsContainer from './containers/ItemsContainer'
+import Dashboard from './Dashboard'
+import Navbar from './Navbar'
 
 import { fetchItems, addItem, deleteItem, editItem } from './actions/itemActions';
 
@@ -12,6 +14,8 @@ class App extends Component {
 
     return (
       <Router>
+        <Route path='/' component={Navbar} />
+        <Route path='/dashboard' component={Dashboard} />
         <Route path='/inventory'>
           <ItemsContainer {...this.props}/>
         </Route>
