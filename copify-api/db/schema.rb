@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_020745) do
+ActiveRecord::Schema.define(version: 2021_02_25_034419) do
 
   create_table "inventories", force: :cascade do |t|
+    t.float "total"
   end
 
   create_table "items", force: :cascade do |t|

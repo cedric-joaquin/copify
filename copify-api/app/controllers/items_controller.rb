@@ -14,12 +14,16 @@ class ItemsController < ApplicationController
             cost: params[:cost],
             inventory: inventory
         )
+        inventory.total += item.cost
+        inventory.save
         
         render json: item.as_json(except: :inventory_id)
     end
 
     def update
         item = Item.find_by(id: params[:id])
+        inventory = item.inventory
+        inventory.total -= item.cost
         item.update(
             purchase_date: params[:purchase_date],
             name: params[:name],
@@ -27,11 +31,16 @@ class ItemsController < ApplicationController
             size: params[:size],
             cost: params[:cost]
         )
+        inventory.total += item.cost
+        inventory.save
         render json: item.as_json(except: :inventory_id)
     end
 
     def destroy
         item = Item.find_by(id: params[:id])
+        inventory = item.inventory
+        inventory.total -= item.cost
+        inventory.save
         item.destroy
     end
 
