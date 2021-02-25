@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TotalCard from './components/analytics/TotalCard'
 
 export default class Dashboard extends Component {
     componentDidMount() {
@@ -9,7 +10,7 @@ export default class Dashboard extends Component {
         console.log(this.props)
         return (
             <div>
-                Inventory Total: ${`${this.props.analytics.total}`}
+                <TotalCard total={this.props.analytics.total} />
             </div>
         )
     }

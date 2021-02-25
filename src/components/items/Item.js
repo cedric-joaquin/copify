@@ -23,15 +23,6 @@ export default class Item extends Component {
                     </div>
                 </div>
             </div>
-            // <div>
-            //     <h1>{item.name}</h1>
-            //     <h2>{item.purchase_date}</h2>
-            //     {item.brand} <br />
-            //     {item.size} <br />
-            //     {item.cost} <br />
-            //     <div>
-            //     </div>
-            // </div>
         )
     }
 }
