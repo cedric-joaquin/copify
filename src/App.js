@@ -6,7 +6,7 @@ import ItemsContainer from './containers/ItemsContainer'
 import Dashboard from './Dashboard'
 import Navbar from './Navbar'
 
-import { fetchItems, addItem, deleteItem, editItem } from './actions/itemActions';
+import { fetchItems, fetchAnalytics, addItem, deleteItem, editItem } from './actions/itemActions';
 
 class App extends Component {
   
@@ -18,9 +18,7 @@ class App extends Component {
           <Router>
             <Route path='/' component={Navbar} />
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-              <Route path='/dashboard' component={Dashboard} />
-              {/* <Route exact path='/inventory'>
-              </Route> */}
+              <Route path='/dashboard' render={() => (<Dashboard analytics={this.props.analytics} fetchAnalytics={this.props.fetchAnalytics} />)} />
               <Route path='/inventory'>
                 <header class="navbar navbar-expand-md">
                   <Link to='/inventory/new'><button>Add Item</button></Link>
@@ -45,6 +43,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchItems: () => dispatch(fetchItems()),
+    fetchAnalytics: () => dispatch(fetchAnalytics()),
     addItem: (item) => dispatch(addItem(item)),
     deleteItem: (item) => dispatch(deleteItem(item)),
     editItem: (item) => dispatch(editItem(item))

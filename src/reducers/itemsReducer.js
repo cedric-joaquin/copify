@@ -2,6 +2,7 @@ const itemsReducer = (state = {items: [], analytics: [], loading:false}, action)
     const loadingState = {
         ...state,
         items: [...state.items],
+        analytics: [...state.analytics],
         loading: true
     }
 
@@ -15,6 +16,16 @@ const itemsReducer = (state = {items: [], analytics: [], loading:false}, action)
             return {
                 ...state,
                 items: action.items,
+                loading: false
+            }
+
+        case 'LOADING_ANALYTICS':
+            console.log('Loading Analytics...');
+            return loadingState
+
+        case 'LOAD_ANALYTICS':
+            return {
+                ...state,
                 analytics: action.analytics,
                 loading: false
             }

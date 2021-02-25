@@ -7,6 +7,15 @@ export const fetchItems = () => {
     }
 }
 
+export const fetchAnalytics = () => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_ANALYTICS'})
+        fetch('http://localhost:4000/items')
+        .then(resp => resp.json())
+        .then(data => dispatch({type:'LOAD_ANALYTICS', analytics: data.analytics}))
+    }
+}
+
 export const addItem = (item) => {
     return (dispatch) => {
         dispatch({type: 'LOADING_ITEM'})

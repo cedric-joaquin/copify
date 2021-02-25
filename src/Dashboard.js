@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 
 export default class Dashboard extends Component {
+    componentDidMount() {
+        this.props.fetchAnalytics();
+    }
+
     render() {
+        console.log(this.props)
         return (
             <div>
-                Welcome to Copify
+                Inventory Total: ${`${this.props.analytics.total}`}
             </div>
         )
     }
