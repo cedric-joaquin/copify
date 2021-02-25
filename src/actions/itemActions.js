@@ -61,6 +61,7 @@ export const editItem = (item) => {
         })
         .then(resp => resp.json())
         .then(item => {
+            window.location.replace(`http://localhost:3000/inventory/${item.id}`);
             dispatch({type: 'EDIT_ITEM', item})
         })
     }
