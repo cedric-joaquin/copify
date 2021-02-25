@@ -1,4 +1,4 @@
-const itemsReducer = (state = {items: [], analytics: [] loading:false}, action) => {
+const itemsReducer = (state = {items: [], analytics: [], loading:false}, action) => {
     const loadingState = {
         ...state,
         items: [...state.items],
