@@ -50,11 +50,9 @@ export default class ItemInput extends Component {
                     cost: ""
                 }
             })
-            this.props.handleAddItemSubmitted()
 
         } else if (this.state.editingItem) {
             this.props.editItem(this.state.item)
-            this.props.handleEditItemSubmitted()
         }
     }
 

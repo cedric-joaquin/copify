@@ -10,7 +10,7 @@ export default class ItemsContainer extends Component {
   render() {
 
     return (
-        <Items items={this.props.items} deleteItem={this.props.deleteItem} editItem={this.props.editItem} />
+        <Items items={this.props.items} deleteItem={this.props.deleteItem} editItem={this.props.editItem} addItem={this.props.addItem}/>
     );
   }
 }
