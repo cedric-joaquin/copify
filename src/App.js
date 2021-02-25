@@ -13,16 +13,20 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
-        <Route path='/' component={Navbar} />
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/inventory'>
-          <ItemsContainer {...this.props}/>
-        </Route>
-        <Route exact path='/inventory'>
-          <Link to='/inventory/new'><button>Add Item</button></Link>
-        </Route>
-      </Router>
+      <div class='container-fluid'>
+        <div class='row'>
+          <Router>
+            <Route path='/' component={Navbar} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/inventory'>
+              <ItemsContainer {...this.props} />
+            </Route>
+            <Route exact path='/inventory'>
+              <Link to='/inventory/new'><button>Add Item</button></Link>
+            </Route>
+          </Router>
+        </div>
+      </div>
     );
   }
 }
