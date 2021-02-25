@@ -30,3 +30,7 @@ package.json
 copify-api/db/development.sqlite3
 copify-api/log/development.log
 .gitignore
+package.json
+copify-api/db/development.sqlite3
+copify-api/log/development.log
+.gitignore
