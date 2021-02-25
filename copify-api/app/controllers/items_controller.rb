@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
     def index
-        inventory = Item.all
-        render json: inventory.as_json(except: :inventory_id)
+        items = Item.all
+        inventory = Inventory.first
+        render json: {items: items.as_json(except: :inventory_id), analytics: inventory}
     end
 
     def create
