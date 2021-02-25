@@ -58,14 +58,21 @@ export default class ItemInput extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleOnSubmit}>
-                <label>Purchase Date</label><input type="date" name="purchase_date" value={this.state.item.purchase_date} onChange={this.handleOnChange}></input><br />
-                <label>Item Name</label><input type="text" name="name" value={this.state.item.name} onChange={this.handleOnChange}></input><br />
-                <label>Brand</label><input type="text" name="brand" value={this.state.item.brand} onChange={this.handleOnChange}></input><br />
-                <label>Size</label><input type="text" name="size" value={this.state.item.size} onChange={this.handleOnChange}></input><br />
-                <label>Cost</label><input type="number" name="cost" value={this.state.item.cost} onChange={this.handleOnChange}></input><br />
-                <input type="submit"></input>
-            </form>
+            <div class="container-fluid pt-1 pl-3">
+                <div class="card" width="18rem">
+                    <div class="card-body">
+                        <form onSubmit={this.handleOnSubmit}>
+                            <label>Purchase Date</label><input type="date" name="purchase_date" value={this.state.item.purchase_date} onChange={this.handleOnChange}></input><br />
+                            <label>Item Name</label><input type="text" name="name" value={this.state.item.name} onChange={this.handleOnChange}></input><br />
+                            <label>Brand</label><input type="text" name="brand" value={this.state.item.brand} onChange={this.handleOnChange}></input><br />
+                            <label>Size</label><input type="text" name="size" value={this.state.item.size} onChange={this.handleOnChange}></input><br />
+                            <label>Cost</label><input type="number" name="cost" value={this.state.item.cost} onChange={this.handleOnChange}></input><br />
+                            <input type="submit" class="btn btn-primary"></input>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         )
     }
 }

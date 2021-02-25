@@ -21,7 +21,7 @@ class App extends Component {
               <Route path='/dashboard' render={() => (<Dashboard analytics={this.props.analytics} fetchAnalytics={this.props.fetchAnalytics} />)} />
               <Route path='/inventory'>
                 <header class="navbar navbar-expand-md">
-                  <Link to='/inventory/new'><button>Add Item</button></Link>
+                  <Link to='/inventory/new'><button class="btn btn-primary">Add Item</button></Link>
                 </header>
                 <ItemsContainer {...this.props} />
               </Route>

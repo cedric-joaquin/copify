@@ -38,7 +38,7 @@ export default class Items extends Component {
                     </Route>
                     <Route exact path={'/inventory/:itemId'} render={routerProps => <Item {...routerProps} items={this.props.items} deleteItem={this.props.deleteItem} addItem={this.props.addItem} editItem={this.props.editItem}
                     editItemClicked={false}/> }/>
-                    <Route path='/inventory/:itemId/edit' render={routerProps => <ItemInput {...routerProps} items={this.props.items}/> }/>
+                    <Route path='/inventory/:itemId/edit' render={routerProps => <ItemInput {...routerProps} items={this.props.items} editItem={this.props.editItem}/> }/>
                 </Switch>
             </div>
         )
