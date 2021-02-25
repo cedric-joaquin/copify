@@ -3,7 +3,7 @@ export const fetchItems = () => {
         dispatch({ type: 'LOADING_INVENTORY'})
         fetch('http://localhost:4000/items')
             .then(resp => resp.json())
-            .then(data => dispatch({type:'LOAD_INVENTORY', items: data.items}))
+            .then(data => dispatch({type:'LOAD_INVENTORY', items: data.items, analytics: data.analytics}))
     }
 }
 
