@@ -20,9 +20,6 @@ class App extends Component {
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
               <Route path='/dashboard' render={() => (<Dashboard analytics={this.props.analytics} fetchAnalytics={this.props.fetchAnalytics} />)} />
               <Route path='/inventory'>
-                <header class="navbar navbar-expand-md">
-                  <Link to='/inventory/new'><button class="btn btn-primary">Add Item</button></Link>
-                </header>
                 <ItemsContainer {...this.props} />
               </Route>
             </main>

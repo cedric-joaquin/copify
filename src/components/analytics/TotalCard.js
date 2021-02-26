@@ -1,15 +1,40 @@
 import React from 'react'
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
+import { Cash, BagCheck } from 'react-bootstrap-icons'
+
 
 const TotalCard = (props) => {
     return(
-        <div class="container-fluid pt-1 pl-3">
-            <div class="card" style={{width: "25%"}}>
-                <div class="card-body">
-                    <Card.Title>Total Inventory Worth: <strong>${props.total}</strong></Card.Title>
-                </div>
-            </div>
-        </div>
+            <Card style={{width: "25rem"}}>
+                <Card.Body>
+                    <Row>
+                        <Col style={{width: "10%"}} >
+                            <Card.Title>Inventory Statistics</Card.Title>
+                        </Col>
+
+                        <Col>
+                            <Row>
+                                <Col style={{padding: "0px", margin: "0px"}}>
+                                    <Cash size={50}/>
+                                </Col>
+                                <Col style={{padding: "0px"}}>
+                                    <Row><strong>${props.total}</strong></Row>
+                                    <Row>Inventory Total</Row>
+                                </Col>
+                            </Row>
+                            <Row>
+                            <Col style={{padding: "0px", margin: "0px"}}>
+                                <BagCheck size={50}/>
+                            </Col>
+                            <Col style={{padding: "0px"}}>
+                                <Row><strong>{props.itemCount}</strong></Row>
+                                <Row>Inventory Items</Row>
+                            </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card >
     )
 }
 

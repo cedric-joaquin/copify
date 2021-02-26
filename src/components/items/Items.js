@@ -18,7 +18,8 @@ export default class Items extends Component {
             })
         
         return (
-            <div>
+            <>
+            <div class="pt-3 mb-3 border-bottom">
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -31,6 +32,7 @@ export default class Items extends Component {
                         {items}
                     </tbody>
                 </table>
+            </div>
                 <Switch>
                     <Route exact path='/inventory/new'>
                         <ItemInput addItem={this.props.addItem} />
@@ -39,7 +41,7 @@ export default class Items extends Component {
                     editItemClicked={false}/> }/>
                     <Route path='/inventory/:itemId/edit' render={routerProps => <ItemInput {...routerProps} items={this.props.items} editItem={this.props.editItem}/> }/>
                 </Switch>
-            </div>
+            </>
         )
     }
 }
