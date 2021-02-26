@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 import ItemsContainer from './containers/ItemsContainer'
 import Dashboard from './Dashboard'
 import Navbar from './Navbar'
@@ -16,7 +16,7 @@ class App extends Component {
       <div class='container-fluid'>
         <div class='row'>
           <Router>
-            <Route path='/' component={Navbar} />
+            <Navbar />
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
               <Route path='/dashboard' render={() => (<Dashboard analytics={this.props.analytics} fetchAnalytics={this.props.fetchAnalytics} />)} />
               <Route path='/inventory'>

@@ -15,7 +15,6 @@ export default class Items extends Component {
                         <td>{item.cost}</td>
                     </tr>
                 )
-                // <Item item={item} key={item.id} deleteItem={this.props.deleteItem} editItem={this.props.editItem}></Item>
             })
         
         return (

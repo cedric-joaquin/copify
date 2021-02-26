@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { BarChartFill, BoxSeam } from 'react-bootstrap-icons'
 
 const Navbar = () => {
     return (
@@ -11,10 +12,10 @@ const Navbar = () => {
                     <Link to={`/`} class='nav-link'>Copify</Link>
                 </li>
                 <li class="nav-item">
-                    <Link to={`/dashboard`} class='nav-link'>Dashboard</Link>
+                    <Link to={`/dashboard`} class='nav-link'><BarChartFill/> Dashboard</Link>
                 </li>
                 <li class="nav-item">
-                    <Link to={`/inventory`} class='nav-link'>Inventory</Link>
+                    <Link to={`/inventory`} class='nav-link'><BoxSeam/> Inventory</Link>
                 </li>
                 <li class="nav-item">
                 </li>
