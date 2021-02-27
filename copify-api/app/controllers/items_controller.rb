@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
         inventory = {
             total: Inventory.first.total,
             itemCount: items.count,
-            brands: Item.brands
+            mostPopularBrand: Item.brands[:mostPopularBrand],
+            sortedBrands: Item.brands[:sortedBrands],
+            totalBrands: Item.brands[:count]
         }
         render json: {items: items.as_json(except: :inventory_id), analytics: inventory}
     end

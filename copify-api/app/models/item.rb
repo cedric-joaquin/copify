@@ -9,7 +9,6 @@ class Item < ApplicationRecord
         end
 
 
-
         return {
             mostPopularBrand: brands.max_by { |brand| freq[brand] },
             sortedBrands: freq.sort_by { |brand, count| count },
