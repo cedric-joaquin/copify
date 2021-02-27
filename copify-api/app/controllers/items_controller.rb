@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
     def index
         items = Item.all
-        inventory = Inventory.first
+        inventory = {
+            total: Inventory.first.total,
+            itemCount: items.count,
+            brands: Item.brands
+        }
         render json: {items: items.as_json(except: :inventory_id), analytics: inventory}
     end
 
