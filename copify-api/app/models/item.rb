@@ -16,4 +16,8 @@ class Item < ApplicationRecord
         }
     end
 
+    def self.mostExpensiveItem
+        return Item.all.sort_by {|item| item.cost}.last
+    end
+
 end

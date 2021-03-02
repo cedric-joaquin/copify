@@ -5,7 +5,7 @@ import { Cash, BagCheck } from 'react-bootstrap-icons'
 
 const TotalCard = (props) => {
     return(
-            <Card style={{width: "25rem"}}>
+            <Card style={{width: "30rem"}}>
                 <Card.Body>
                     <Row>
                         <Col style={{width: "10%"}} >

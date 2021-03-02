@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
             itemCount: items.count,
             mostPopularBrand: Item.brands[:mostPopularBrand],
             sortedBrands: Item.brands[:sortedBrands],
-            totalBrands: Item.brands[:count]
+            totalBrands: Item.brands[:count],
+            mostExpensiveItemName: Item.mostExpensiveItem[:name],
+            mostExpensiveItemCost: Item.mostExpensiveItem[:cost]
         }
         render json: {items: items.as_json(except: :inventory_id), analytics: inventory}
     end
